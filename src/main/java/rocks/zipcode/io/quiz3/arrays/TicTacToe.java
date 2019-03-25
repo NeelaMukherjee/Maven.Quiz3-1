@@ -57,12 +57,12 @@ public class TicTacToe {
         String winner = "X";
         for(int i=0;i<3;i++) {
             if (isColumnHomogeneous(i)){
-               String [] column = getColumn(0);
-                winner = column[0].toString();
+               String [] column = getColumn(i);
+                winner = column[i].toString();
             }
             else if(isRowHomogenous(i)){
-                String []row = getRow(0);
-                winner = row[0].toString();
+                String []row = getRow(i);
+                winner = row[i].toString();
             }
 
         }
