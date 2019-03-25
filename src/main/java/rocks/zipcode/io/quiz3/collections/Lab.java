@@ -6,12 +6,11 @@ package rocks.zipcode.io.quiz3.collections;
 public class Lab {
 
     public String labName;
-
     public LabStatus labStatus;
 
-    public Lab() {
-        this(null);
-    }
+//    public Lab() {
+//        this(null);
+//    }
 
     public Lab(String labName) {
 

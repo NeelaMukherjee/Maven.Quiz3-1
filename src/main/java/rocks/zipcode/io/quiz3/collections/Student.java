@@ -7,11 +7,9 @@ import java.util.List;
  * @author leon on 10/12/2018.
  */
 public class Student {
-    LabStatus labStatus;
     List<Lab> labList;
 
     public Student() {
-        //this(null);
         this.labList = new ArrayList<>();
     }
 
@@ -32,10 +30,8 @@ public class Student {
     }
 
     public void setLabStatus(String labName, LabStatus labStatus) {
-Lab lab1 = getLab(labName);
-
-//labList.
-
+        Lab lab1 = getLab(labName);
+        lab1.setStatus(labStatus);
     }
 
     public void forkLab(Lab lab) {
@@ -43,6 +39,15 @@ Lab lab1 = getLab(labName);
     }
 
     public LabStatus getLabStatus(String labName) {
-        return null;
+        Lab lab1 = getLab(labName);
+
+        return lab1.getStatus();
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "labList=" + labList +
+                '}';
     }
 }
