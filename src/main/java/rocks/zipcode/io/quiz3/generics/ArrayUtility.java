@@ -1,5 +1,6 @@
 package rocks.zipcode.io.quiz3.generics;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -17,30 +18,27 @@ public class ArrayUtility<SomeType> {
     }
 
     public SomeType findOddOccurringValue() {
-        SomeType value=null;
+        SomeType value = null;
 
-        for (int i=0;i<array.length;i++)
+        for (int i = 0; i < array.length; i++)
 
-            if (getNumberOfOccurrences(array[i])%2!=0){
+            if (getNumberOfOccurrences(array[i]) % 2 != 0) {
 
-                value =  array[i];
+                value = array[i];
             }
         return value;
-        //return null;
     }
 
     public SomeType findEvenOccurringValue() {
-        SomeType value=null;
+        SomeType value = null;
 
-        for (int i=0;i<array.length;i++)
+        for (int i = 0; i < array.length; i++)
 
-            if (getNumberOfOccurrences(array[i])%2==0){
+            if (getNumberOfOccurrences(array[i]) % 2 == 0) {
 
-                value =  array[i];
+                value = array[i];
             }
         return value;
-
-        //return null;
     }
 
     public Integer getNumberOfOccurrences(SomeType valueToEvaluate) {
@@ -52,8 +50,7 @@ public class ArrayUtility<SomeType> {
 
     public SomeType[] filter(Function<SomeType, Boolean> predicate) {
 
-//       List<SomeType> list = Arrays.stream(array).filter(predicate).collect(Collectors.toList());
-//       return list.toArray(new SomeType[0]);
-        return null;
+        List<SomeType> list = Arrays.stream(array).filter(val -> predicate.apply(val)).collect(Collectors.toList());
+        return list.toArray((SomeType[])Array.newInstance(array.getClass().getComponentType(), list.size()));
     }
 }

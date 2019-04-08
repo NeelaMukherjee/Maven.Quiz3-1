@@ -5,17 +5,13 @@ package rocks.zipcode.io.quiz3.collections;
  */
 public class Lab {
 
-//    public String labName;
-//    public LabStatus labStatus;
-
-    String labName= "duplicate deleter";
-    LabStatus labStatus=LabStatus.PENDING;
+    String labName;
+    LabStatus labStatus;
 
    public Lab() {
 
        String labName="duplicate deleter";
        LabStatus labStatus=LabStatus.PENDING;
-        //this(null);
     }
 
     public Lab(String labName) {

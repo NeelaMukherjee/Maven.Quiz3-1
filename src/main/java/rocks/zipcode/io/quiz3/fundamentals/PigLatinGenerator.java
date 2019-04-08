@@ -9,29 +9,21 @@ import java.util.Arrays;
 public class PigLatinGenerator {
     public String translate(String str) {
 
-        for (int i = 0; i < str.length(); i++) {
-
-            if (VowelUtils.isVowel(str.charAt(i))) {
-                return str + "way";
+        String[] words = str.split(" ");
+        String result = "";
+        for (String word : words) {
+            if (VowelUtils.startsWithVowel(word)) {
+                result += word + "way" + " ";
+            } else {
+                int startIndex = VowelUtils.getIndexOfFirstVowel(word);
+                if (startIndex != -1) {
+                    result += word.substring(startIndex) + word.substring(0, startIndex) + "ay" + " ";
+                } else {
+                    result += word + "ay" + " ";
+                }
             }
-
         }
-        return null;
+        return result.substring(0, result.length() - 1);
     }
 }
-
-//        String[] stringArray = str.split(" ");
-//        ArrayList<String> translator = new ArrayList<>(Arrays.asList(stringArray));
-//
-//        if ((translator.get(0).charAt(0) == 'a' ||
-//                translator.get(0).charAt(0) == 'e' ||
-//                translator.get(0).charAt(0) == 'i' ||
-//                translator.get(0).charAt(0) == 'o' ||
-//                translator.get(0).charAt(0) == 'u')) {
-//            return str+"way";
-//
-//        }
-//
-//        return null;
-
 

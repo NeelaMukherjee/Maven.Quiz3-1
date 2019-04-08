@@ -1,7 +1,9 @@
 package rocks.zipcode.io.quiz3.fundamentals;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author leon on 09/12/2018.
@@ -21,21 +23,21 @@ public class StringUtils {
 
     public static String[] getAllSubStrings(String string) {
 
-        ArrayList<String> result = new ArrayList<>();
+        //ArrayList<String> result = new ArrayList<>(); //take  set to get rid of the duplicates
+
+        Set<String> resultSet = new HashSet<String>();
 
         for (int i = 0; i < string.length(); i++) {
             for (int j = i + 1; j <= string.length(); j++) {
-                result.add((string.substring(i, j)));
+                resultSet.add((string.substring(i, j)));
             }
         }
-
-
-        return result.toArray(new String[0]);
+        return resultSet.toArray(new String[0]);
     }
 
     public static Integer getNumberOfSubStrings(String input) {
         Integer result = getAllSubStrings(input).length;
-        return result;
+        return result+1;
     }
 
 }

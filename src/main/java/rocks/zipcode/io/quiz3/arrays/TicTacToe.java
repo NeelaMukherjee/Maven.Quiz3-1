@@ -5,7 +5,7 @@ package rocks.zipcode.io.quiz3.arrays;
  */
 public class TicTacToe {
 
-    String[][] board = new String[3][3];
+    private final String[][] board; //= new String[3][3];
 
     public TicTacToe(String[][] board) {
 
@@ -13,6 +13,8 @@ public class TicTacToe {
     }
 
     public TicTacToe() {
+
+        this(new String[3][3]);
     }
 
     public String[] getRow(Integer value) {
@@ -26,7 +28,12 @@ public class TicTacToe {
         }
         return column;
 
-        //return board [value];
+//        String firstElement = board[value][0];
+//        String secondElement = board[value][1];
+//        String thirdElement = board[value][2];
+//
+//        String [] column = {firstElement, secondElement, thirdElement};
+//        return column;
     }
 
     public Boolean isRowHomogenous(Integer rowIndex) {
@@ -58,11 +65,11 @@ public class TicTacToe {
         for(int i=0;i<3;i++) {
             if (isColumnHomogeneous(i)){
                String [] column = getColumn(i);
-                winner = column[i].toString();
+                winner = column[i];
             }
             else if(isRowHomogenous(i)){
                 String []row = getRow(i);
-                winner = row[i].toString();
+                winner = row[i];
             }
 
         }
